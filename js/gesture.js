@@ -184,19 +184,19 @@ function handledown(){
 			break;
 		case 1://Got next move, do something based on direction
 			var dx=down.x-wasdown.x,dy=down.y-wasdown.y
-			var dirx=Math.abs(dy)<Math.abs(dx)//(dx,dy) is on a bowtie
+			var isHorizontalMovement=Math.abs(dy)<Math.abs(dx)//(dx,dy) is on a bowtie
 			console.log("dx: " + dx);
-			console.log("dirx: " + dirx);
+			console.log("isHorizontalMovement: " + isHorizontalMovement);
 			//console.log(good,davg)
-			if(dx<-movethresh&&dirx){
+			if(dx<-movethresh&&isHorizontalMovement){
 				console.log('right')
 				Reveal.navigateRight()
 			}
-			else if(dx>movethresh&&dirx){
+			else if(dx>movethresh&&isHorizontalMovement){
 				console.log('left')
 				Reveal.navigateLeft()
 			}
-			if(dy>movethresh&&!dirx){
+			if(dy>movethresh&&!isHorizontalMovement){
 				if(davg>overthresh){
 					console.log('over up')
 					Reveal.toggleOverview()
@@ -206,7 +206,7 @@ function handledown(){
 					Reveal.navigateUp()
 				}
 			}
-			else if(dy<-movethresh&&!dirx){
+			else if(dy<-movethresh&&!isHorizontalMovement){
 				if(davg>overthresh){
 					console.log('over down')
 					Reveal.toggleOverview()
