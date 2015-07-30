@@ -3,7 +3,7 @@ canvas=document.getElementById('canvas')
 _=canvas.getContext('2d')
 ccanvas=document.getElementById('comp')
 c_=ccanvas.getContext('2d')
-navigator.webkitGetUserMedia({audio:true,video:true},function(stream){
+navigator.webkitGetUserMedia({audio:false,video:true},function(stream){
 	s=stream
 	video.src=window.webkitURL.createObjectURL(stream)
 	video.addEventListener('play',
