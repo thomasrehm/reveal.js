@@ -1,0 +1,22 @@
+{
+    "name": "revealjs",
+    "xwalk_version": "0.0.2",
+    "start_url": "index.html",
+    "orientation": "landscape",
+    "display": "fullscreen",
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "density": "4.0"
+    }],
+    "xwalk_launch_screen": {
+        "ready_when": "complete",
+        "default": {
+            "background_color": "#A6CECE",
+            "background_image": "icon.png",
+            "image": "icon.png",
+            "image_border": "30px round"
+        }
+    }
+}
