@@ -1,7 +1,21 @@
+var vid = document.createElement('video'),
+can = document.createElement('canvas');
+vid.setAttribute('id','video');
+vid.setAttribute('width', '300');
+vid.setAttribute('style', 'display:none');
+vid.setAttribute('autoplay', 'autoplay');
+can.setAttribute('id', 'canvas');
+can.setAttribute('style', 'width:300px;display:none;');
+
+document.body.appendChild(vid);
+document.body.appendChild(can);
+console.log('injected video and canvas element');
 (function (win) {
     "use strict";
+
     var doc = win.document,
-        draw, video = doc.getElementById('video'),
+        draw,
+        video = doc.getElementById('video'),
         canvas = doc.getElementById('canvas'),
         _ = canvas.getContext('2d'),
         ccanvas = doc.getElementById('comp'),
@@ -33,8 +47,7 @@
         audio: false,
         video: true
     }, function (stream) {
-        var s = stream;
-        video.src = win.webkitURL.createObjectURL(stream);
+        video.src = win.URL.createObjectURL(stream);
         video.addEventListener('play',
             function () {
                 setInterval(dump, 1000 / 25);
@@ -52,7 +65,7 @@
         }
         _.drawImage(video, width, 0, -width, height);
         draw = _.getImageData(0, 0, width, height);
-        //c_.putImageData(draw,0,0)
+        //c_.putImageData(draw,0,0);
         skinfilter();
         test();
     }
@@ -162,7 +175,7 @@
         }
         //console.log(totald)
         last = draw;
-        c_.putImageData(delt, 0, 0);
+        //c_.putImageData(delt, 0, 0);
     }
 
     function calibrate() {
